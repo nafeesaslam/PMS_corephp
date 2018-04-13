@@ -1,0 +1,154 @@
+<div ng-controller="departmentController" ng-init="loadDepartment()">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+      
+        <div class="table-responsive" id="kpitable">        
+          <table class="table">
+            <tr>
+            <th colspan="2"><button class="btn btn-default" data-toggle="modal" data-target="#addDept" ng-click="clear()"> New Department <i class="fa fa-plus"></i></button></th>
+            <th colspan="3"><div class="input-group"><input type="search" class="form-control" name="" ng-model="searching" placeholder="Search Department" style="float: right;">
+              <span class="input-group-addon"><i class="fa fa-search"></i></span>
+            </div></th>
+            <th colspan="2"><!--<button class="btn btn-default"  style="float: right;" ng-click="loadDepartment()"><i class="fa fa-refresh"  ></i></button><button class="btn btn-default"  style="float: right;" ng-click="exportData()"><i class="fa fa-bars"  ></i></button>--></th>
+            </tr>
+            <tr>
+            <!-- <th style="width: 100px;"><input type="checkbox" name="" > -->
+              <th   ng-click="orderByField='ID'; reverseSort = !reverseSort" style="cursor:pointer;">ID 
+                <i class="fa fa-sort"></i></th>
+              <th ng-click="orderByField='Name'; reverseSort = !reverseSort" style="cursor:pointer;">Department Name <i class="fa fa-sort"></i></th>
+              <!-- <th ng-click="orderByField='Type'; reverseSort = !reverseSort" style="cursor:pointer;">Type <i class="fa fa-sort"></i></th> -->
+              <!-- <th ng-click="orderByField='Department'; reverseSort = !reverseSort" style="cursor:pointer;">Departmet <i class="fa fa-sort"></i></th> -->
+              <th ng-click="orderByField='Status'; reverseSort = !reverseSort" style="cursor:pointer;">Status <i class="fa fa-sort"></i></th>
+             <!--  <th ng-repeat="x in columnsKpi" >{{x}} 
+              </th> -->
+              <th style="width: 100px;" colspan="4">Actions</th>
+
+            </tr>
+            
+            <tbody>
+
+            <tr ng-repeat="a in alldeps | orderBy:orderByField:reverseSort | filter: searching">
+              <!-- <td><input type="checkbox" name="" checklist-model="a"><p hidden="">{{a.ID}}</p></td> -->
+              <td>{{a.id}}</td> 
+              
+              <td>{{a.dept_name}}</td>
+              <td>{{a.status}}</td>
+              <td colspan="4" style="cursor: pointer;">
+             
+              <a class="" data-toggle="modal" data-target="#editDep"  style="padding-left:0px;" ng-click="restoreVal(a)">Update</a> / <a class="" style="padding-left:0px;" ng-click="removeDep(a)">Remove</a></td>
+              
+             
+            </tr>
+            <tr ng-show="kpi.length == 0">
+            <td style="width: 300px;"></td>
+               <td ng-include="'http://localhost/EPMSxs/views/404.svg'" class="ng-scope" style="margin-left: 70%;height: 100px;width: 100px;">
+              
+              </td>
+            </tr>
+            <tr ng-hide="kpi.length == 0">
+              <th colspan="2"></th>
+              <th colspan="2"></th>
+              <th colspan="3"></th>
+            </tr>
+            </tbody>
+          </table>
+          </div>
+    </div>
+  </div>
+  <div class="modal fade" id="addDept" role="dialog">
+    <div class="table-responsive">
+    <div class="modal-dialog">
+    <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">CREATE Department</h4>
+        </div>
+        <div class="modal-body">
+  <form>
+ 
+  <div class="form-group">
+         <label>Department Name</label>
+          <input name="department" class="form-control" ng-model="department">
+          
+
+         
+        </div>
+
+        <div class="form-group">
+         <label>Status</label>
+          <select name="status" class="form-control" ng-model="status">
+          <option value="">Select Kpi Status</option>
+          <option value="ACTIVE">ACTIVE</option>
+          <option value="IDLE">IDLE</option>
+          
+
+          </select>
+        </div>        
+        <button type="submit" name="submit" class="btn btn-default" data-dismiss="modal" ng-click="addDep()">Submit</button>
+        <button type="text" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </form>
+        </div>
+       </div>
+      </div></div>
+  </div>
+    <div class="modal fade" id="editDep" role="dialog">
+    <div class="table-responsive">
+    <div class="modal-dialog">
+    <!-- Modal content-->
+      <div class="modal-content"> 
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">UPDATE Department</h4>
+        </div>
+        <div class="modal-body">
+  <form>
+   <label>Department</label>
+
+ <input name="department" class="form-control" ng-model="department" >
+   <!-- <div class="form-group">
+         <label>Department</label>
+          <select name="designation" class="form-control" ng-model="department" ng-options="x.dept_name as x.dept_name for x in allDep" >
+          <option value="">Select Department</option>
+          <option value="1">IT</option>
+          <option value="2">HR</option>
+          <option value="3">Sales</option>
+
+          </select>
+        </div> -->
+
+        <div class="form-group">
+         <label>Status</label>
+          <select name="status" class="form-control" ng-model="status" ng-options="x.name as x.name for x in allStatus">
+          <option value="">Select Kpi Status</option>
+          <!--<option value="ACTIVE">ACTIVE</option>
+          <option value="IDLE">IDLE</option>-->
+          
+
+          </select>
+        </div>        
+        <button type="submit" name="submit" class="btn btn-default" data-dismiss="modal" ng-click="editDepartment()">Submit</button>
+        <button type="text" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </form>
+        </div>
+       </div>
+      </div></div>
+  </div>
+
+
+
+  
+        </div>
+  </div>
+
+<style type="text/css">
+  @media(max-width:480px) {
+  
+  svg{
+    width:300px;
+    height:200px;
+  }
+  /*DO Something*/
+}
+</style>

@@ -1,0 +1,52 @@
+<div class="row">
+<div class="col-md-12">
+    <!-- <link href="../EPMSxs/css/reset.css" rel="stylesheet">
+    <link href="../EPMSxs/css/style2.css" rel="stylesheet"> -->
+    
+
+
+  <div id="form-container">
+  
+      <div class="page-header text-center">
+          <h2 style="color:white;">Add Employee Details</h2>
+          
+          <!-- the links to our nested states using relative paths -->
+          <!-- add the active class if the state matches our ui-sref -->
+          <div id="status-buttons" class="text-center">
+            <!-- <nav>
+              <ol class="cd-multi-steps text-bottom count">
+                <li class="visited"><a ui-sref=".profile">Login</a></li>
+                <li class="" ><a ui-sref=".interests" type="submit" ng-disabled="login.name.$invalid || login.password.$invalid">Personal</a></li>
+                <li class=""><a ui-sref=".payment">Employment</a></li>
+                <li><a ui-sref=".payment">Image Upload</a></li>
+                <li><a ui-sref=".payment">Submit</a></li>
+              </ol>
+            </nav> -->
+            <div class="btn-group">
+              
+              <a class="disableClick" ui-sref-active="active" ui-sref=".interests"><span><i class="fa fa-user"></i></span><p class="hidden-xs">Personal </p> </a>
+              <a class="disableClick" ui-sref-active="active" ui-sref=".employement"><span><i class="fa fa-briefcase"></i></span><p class="hidden-xs">Employee </p> </a>
+              <a class="disableClick" ui-sref-active="active" ui-sref=".upload"><span><i class="fa fa-camera-retro"></i></span><p class="hidden-xs">Image</p></a>
+              <a class="disableClick" ui-sref-active="active" ui-sref=".profile"><span><i class="fa fa-key"></i></span> <p class="hidden-xs">Login </p></a>
+              <a class="disableClick" ui-sref-active="active" ui-sref=".payment"><span><i class="fa fa-check"></i></span><p class="hidden-xs">Submit</p> </a>
+              </div>
+          </div>
+      </div>
+      
+      <!-- use ng-submit to catch the form submission and use our Angular function -->
+      <form name="myForm" id="signup-form" ng-submit="processForm()">
+          <!-- our nested state views will be injected here -->
+          <div id="form-views" ui-view></div>
+      </form>
+  
+  </div>
+  
+  <!-- show our formData as it is being typed -->
+ <pre>
+    {{ formData }}
+  </pre> 
+
+</div>
+
+</div>
+

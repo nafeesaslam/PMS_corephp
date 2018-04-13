@@ -1,0 +1,19 @@
+
+.symbol {
+  display: inline-block ; 
+  border-radius: unset;
+  border: 5px double white;
+  width: 100px;
+  height: 30px;
+}
+.symbol-empty {
+  background-color: #ccc;
+  }
+
+.symbol-filled {
+  background-color: rgba(0, 137, 255, 0.8);
+}
+ #disp1,#disp2,#disp3{
+    text-align: center;
+    color:crimson;
+  } 

@@ -1,0 +1,105 @@
+<form name="myForm" ng-submit="some()" novalidate>
+
+<div class="row">
+    <div class="col-md-4 col-xs-12">
+        
+        <div class="form-group">
+            <label>DOB</label>
+            <input  class="form-control" type="date"  name="mydob" ng-model="formData.dob">
+        </div>
+    </div>
+    <div class="col-md-4 col-xs-12">
+        <div class="form-group">
+            <label>Email</label>
+            <input ng-disabled="!myForm.mydob.$dirty" class="form-control" placeholder="Email" type="email" name="email" ng-model="formData.email" required>
+        </div>
+    </div>
+    <div class="col-md-4 col-xs-12">
+        <div class="form-group">
+            <label>Contact</label>
+            <input ng-disabled="!myForm.email.$dirty" required class="form-control" placeholder="Contact" type="text" name="contact" ng-model="formData.contact">
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    
+    <div class="col-md-4 col-xs-12" ng-init="loadBlood()">
+        
+        <div class="form-group">
+                <label>Blood Group</label>
+                 <select type="text" ng-disabled="!myForm.contact.$dirty" class="form-control" name="bld" ng-options=" x.name as x.name for x in allblds" ng-model="formData.bld" required="required">
+    <option value="">--Blood Group--</option>
+</select><!-- <input required class="form-control" placeholder="Contact" type="text" name="email" ng-model="formData.contact"> -->
+            </div>
+    </div>
+    <!-- <div class="col-md-4 col-xs-12">
+        <div class="form-group">
+            <label>Religion</label>
+            <input ng-disabled="!myForm.bld.$dirty" class="form-control" placeholder="Religion" type="text" name="rel" ng-model="formData.rel">
+        </div>
+            
+        
+    </div> -->  
+    <div class="col-md-4 col-xs-12">
+        <div class="form-group">
+            <label>Nationality</label>
+            <input ng-disabled="!myForm.bld.$dirty" class="form-control" placeholder="Nationality" type="text" name="nation" ng-model="formData.nation">
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    
+    <div class="col-md-4 col-xs-12">
+        <div class="form-group">
+            <label>Father</label>
+            <input ng-disabled="!myForm.nation.$dirty" class="form-control" placeholder="Father" type="text" name="father" ng-model="formData.father">
+        </div>
+    </div>
+
+    <div class="col-md-4 col-xs-12">
+        <label>Marital Status</label>
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                   <input type="radio" ng-disabled="!myForm.father.$dirty"  ng-model="formData.mStatus" name="mar" value="Married">
+                   Married
+                </label>
+                 <label>
+                    <input  type="radio" ng-disabled="!myForm.father.$dirty" ng-model="formData.mStatus" name="sing" value="Single">
+                    Single
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-xs-12">
+        <label>Gender</label>
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                   <input ng-disabled="!myForm.mar.$dirty && !myForm.sing.$dirty" type="radio"  ng-model="formData.gender" name="genm" value="Male">
+                   Male
+                </label>
+                 <label>
+                    <input ng-disabled="!myForm.mar.$dirty && !myForm.sing.$dirty" type="radio"  ng-model="formData.gender" name="genf" value="Female">
+                    Female
+                </label>
+            </div>
+        </div>
+    </div>    
+
+</div>
+
+
+
+<div class="form-group row">
+<div class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
+    <button ng-show=" myForm.mydob.$dirty && myForm.bld.$dirty && myForm.email.$dirty && myForm.contact.$dirty  && myForm.nation.$dirty && myForm.father.$dirty && ( myForm.mar.$dirty || myForm.sing.$dirty) && ( myForm.genm.$dirty || myForm.genf.$dirty)" type="submit" ui-sref="form.employement" class="btn btn-block btn-info">
+    Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </button>
+</div>
+</div>
+
+</form>

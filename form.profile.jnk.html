@@ -1,0 +1,45 @@
+<form name="login"  novalidate>
+<md-content  layout-gt-sm="row" layout-padding>
+    
+      <md-input-container>
+        <label>Employee Number</label>
+        <input required type="number" name="empno" ng-model="formData.empno">
+      </md-input-container>
+      <md-input-container>
+        <label><i class="fa fa-user"></i>Login Name</label>
+        <input required name="empname" ng-model="formData.empname">
+      </md-input-container>
+
+      <md-input-container>
+        <label><i class="fa fa-key"></i> Password</label>
+        <input required name="password" ng-model="formData.password" type="password">
+      </md-input-container>
+      <md-input-container>
+      <md-button type="submit" ng-show="login.empno.$valid && login.empname.$valid && login.password.$valid && formData.password.length>6" ui-sref="form.interests"  ng-click="Login()">Submit</md-button>
+      </md-input-container>
+  </md-content>
+<!-- <div class="form-group">
+    <label for="name" >Name</label>
+    <input type="text" class="form-control" name="name" placeholder="Login Name" ng-model="formData.name" required>
+</div>
+
+<div class="form-group">
+    <label for="email" >Email</label>
+    <input type="password" class="form-control" placeholder="Password          ( At least six characters)" name="password" ng-model="formData.password" required>
+</div>
+
+<div class="form-group row">
+<div class="col-xs-6 col-xs-offset-3">
+    <button type="submit" ng-show="login.name.$valid && login.password.$valid && login.emp.$valid && formData.password.length>6" class="btn btn-block btn-info" ui-sref="form.interests"  ng-click="Login()">
+    Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </button>
+</div>
+</div> -->
+      <!-- <div class="form-group row">
+	<div class="col-xs-6 col-xs-offset-3">
+    <button type="submit" class="btn btn-block btn-info" ng-click="Login()">
+    Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </button>
+</div>
+</div> -->
+</form>

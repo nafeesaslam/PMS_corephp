@@ -1,0 +1,8 @@
+/*Query for Getting Department name from department table to KPI master table*/
+---SELECT a.kpi_id,a.kpi_name,d.dept_name as department,dept_id,a.kpi_type FROM tbl_mstr_kpi_details a,tbl_mstr_department d WHERE  a.department=d.dept_id
+
+/*  */
+---SELECT a.kpi_id,a.kpi_name,d.dept_name as department,dept_id,a.kpi_type FROM tbl_mstr_kpi_details a,tbl_mstr_department d WHERE  a.department=d.dept_id
+
+/* To get the kpi name and emp name from 3 tables*/
+---SELECT `trn_kpi_id`,ms.kpi_name,em.emp_name , `kpi_weightage`, `self_rating`, `self_remarks`, `app1_rating`, `app1_remarks`, `app2_rating`, `app2_remarks`, `reviewer_rating`, `reviewer_remarks`, `save_status`, `submit_status`, `appraisal_period`, `inserted_date` from tbl_trn_kpi_details, tbl_mstr_kpi_details ms,tbl_mstr_emp_details em WHERE ms.kpi_id=tbl_trn_kpi_details.kpi_id and tbl_trn_kpi_details.emp_no=em.emp_no AND em.emp_no='$_SESSION['emp_no']'

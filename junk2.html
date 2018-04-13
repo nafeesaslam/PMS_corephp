@@ -1,0 +1,45 @@
+<tr>
+              <th>KPI</th>
+                <th>Target</th>
+                <th >Weight</th>
+                <th>Actual</th>
+              </tr>
+              <tbody>
+                <tr>
+                <td>
+                  <div class="progress">
+                  <div class="{{contextClass1}}" role="progressbar" aria-valuenow="40"
+                  aria-valuemin="0" aria-valuemax="100" style="width:{{logEmp.self_scale_kpi1 * 20}}%">{{logEmp.self_scale_kpi1}}</div>
+                  </div>
+                </td>
+              
+                  <td>100</td>
+                  <td>{{logEmp.weightage_kpi1}}</td>
+                  <td>{{((logEmp.self_scale_kpi1/100)*logEmp.weightage_kpi1) | number :2}}</td>
+                </tr>
+                <tr>
+                <td><div class="progress">
+                <div class="{{contextClass2}}" role="progressbar" aria-valuenow="40"
+                aria-valuemin="0" aria-valuemax="100" style="width:{{logEmp.self_scale_kpi2 * 20}}%">{{logEmp.self_scale_kpi2}}</div>
+            </div></td>
+                  <td>100</td>
+                  <td>{{logEmp.weightage_kpi2}}</td>
+                  <td>{{((logEmp.self_scale_kpi2/100)*logEmp.weightage_kpi2) | number :2}}</td>
+                </tr>
+                <tr>
+                <td><div class="progress">
+                <div class="{{contextClass3}}" role="progressbar" aria-valuenow="40"
+                aria-valuemin="0" aria-valuemax="100" style="width:{{logEmp.self_scale_kpi3 * 20}}%">{{logEmp.self_scale_kpi3}}</div>
+            </div></td>
+                  <td>100</td>
+                  <td>{{logEmp.weightage_kpi3}}</td>
+                  <td>{{((logEmp.self_scale_kpi3/100)*logEmp.weightage_kpi3) | number :2}}</td>
+                </tr>
+                <tr>
+                  
+                
+                  <td style="background-color: {{contextBackground}};" colspan="3">Weightage Average Score</td>
+                  <td style="background-color: {{contextBackground}};">{{(((logEmp.self_scale_kpi1/100)*logEmp.weightage_kpi1)+((logEmp.self_scale_kpi2/100)*logEmp.weightage_kpi2)+((logEmp.self_scale_kpi3/100)*logEmp.weightage_kpi3)) | number :2}}</td>
+                  
+                </tr>
+              </tbody>

@@ -1,0 +1,244 @@
+<div ng-controller="kpimasterController" ng-init="loadData()">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+      
+        <div class="table-responsive">        
+          <table class="table" id="kpitable" >
+            <tr>
+            <th colspan="2"><button class="btn btn-default" data-toggle="modal" data-target="#addKpi" ng-click="clear()">Add New KPI <i class="fa fa-plus"></i></button></th>
+            <th colspan="3"><div class="input-group"><input type="search" placeholder="Search KPI" class="form-control" name="" ng-model="searching" style="float: right;">
+              <span class="input-group-addon"><i class="fa fa-search"></i></span>
+            </div></th>
+            <th colspan="2"><!--<button class="btn btn-default"  style="float: right;" ng-click="loadData()"><i class="fa fa-refresh"  ></i></button><button class="btn btn-default"  style="float: right;" ng-click="exportData()"><i class="fa fa-bars"  ></i></button>--></th>
+            </tr>
+            <tr>
+            <!-- <th style="width: 100px;"><input type="checkbox" name="" > -->
+              <th  ng-click="orderByField='ID'; reverseSort = !reverseSort" style="cursor:pointer;">Name <i class="fa fa-sort"></i></th>
+              <th ng-click="orderByField='Name'; reverseSort = !reverseSort" style="cursor:pointer;">KRA <i class="fa fa-sort"></i></th>
+              <th ng-click="orderByField='Type'; reverseSort = !reverseSort" style="cursor:pointer;">Type <i class="fa fa-sort"></i></th>
+              <th ng-click="orderByField='Department'; reverseSort = !reverseSort" style="cursor:pointer;">Departmet 
+                <i class="fa fa-sort"></i></th>
+              <th ng-click="orderByField='Status'; reverseSort = !reverseSort" style="cursor:pointer;">Status <i class="fa fa-sort"></i></th>
+             <!--  <th ng-repeat="x in columnsKpi" >{{x}} 
+              </th> -->
+              <th style="width: 100px;" colspan="4">Actions</th>
+
+            </tr>
+            
+            <tbody>
+
+            <tr ng-repeat="a in kpi | orderBy:orderByField:reverseSort">
+              <!-- <td><input type="checkbox" name="" checklist-model="a"><p hidden="">{{a.ID}}</p></td> -->
+              <!--<td>{{a.ID}}</td> -->
+              <td sortable="'Name'">{{a.Name}}</td>
+			  <td>{{a.KRA}}</td> 
+              <td>{{a.Type}}</td>
+              <td>{{a.Department}}</td>
+              <td>{{a.Status}}</td>
+              <td colspan="4" style="cursor: pointer;">
+             
+              <!-- <button class="btn btn-default" ng-click="getName(a)"><i class="fa fa-thumb-tack" data-toggle="modal" data-target="#assignKPI"  style="padding-left:0px;"></i></button> --><a class="" data-toggle="modal" data-target="#editKpi"  style="padding-left:0px;" ng-click="restoreVal(a)">Update</a> / <a class="" style="padding-left:0px;" ng-click="removeKpi(a)">Remove</a></td>
+              
+             
+            </tr>
+            <tr ng-show="kpi.length == 0">
+            <td style="width: 300px;"></td>
+               <td ng-include="'http://localhost/EPMSxs/views/404.svg'" class="ng-scope" style="margin-left: 70%;height: 100px;width: 100px;">
+              
+              </td>
+            </tr>
+            <tr ng-hide="kpi.length == 0">
+              <th colspan="2"></th>
+              <th colspan="2"></th>
+              <th colspan="3"></th>
+            </tr>
+            </tbody>
+          </table>
+          </div>
+    </div>
+  </div>
+  <div class="modal fade" id="addKpi" role="dialog">
+    <div class="table-responsive">
+    <div class="modal-dialog">
+    <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">CREATE KPIs</h4>
+        </div>
+        <div class="modal-body">
+		<form ng-submit="addKpi()">
+         
+			<div class="form-group">
+    <label> Name</label>
+    <input type="text" class="form-control" name="name" ng-model="name" required>
+</div>
+<div class="form-group">
+    <label> KRA</label>
+    <input type="text" class="form-control" name="kkra" ng-model="kkra" required>
+</div>
+<div class="form-group">
+    <label>Type</label>
+    <select type="text" class="form-control" ng-options="x.type_name as x.type_name for x in allTypes" ng-model="type">
+    <option value="">--Select KPI Type--</option>
+  </select>
+</div> 
+<div class="form-group">
+    <label>Department</label>
+    <select type="text" class="form-control" ng-options="x.dept_name as x.dept_name for x in allDep" ng-model="department">
+    <option value="">--Select Department--</option>
+    </select>
+</div>
+<div class="form-group">
+    <label>Status</label>
+    <select type="text" class="form-control" ng-options="x.name as x.name for x in allStatus" ng-model="status">
+    <option value="">--Select Status</option>
+    </select>
+</div> 
+<div class="modal-footer">
+        <button type="submit" name="submit" class="btn btn-default pull-right">Submit</button>
+</div>
+       
+        </form>
+        </div>
+       </div>
+      </div></div>
+  </div>
+
+
+  <div class="modal fade" id="editKpi" role="dialog" >
+    <div class="table-responsive">
+    <div class="modal-dialog">
+    <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">UPDATE KPI</h4>
+        </div>
+        <div class="modal-body">
+  <form>
+  <input type="text" name="" ng-model="id" hidden>
+  <div class="form-group">
+    <label> Name</label>
+    <input type="text" class="form-control" name="name" ng-model="name"/>
+    </div>
+	<div class="form-group">
+         <label>KRA</label>
+         <!-- <select type="text" class="form-control" ng-options="x.KRA as x.KRA for x in allTypes" ng-model="kra">
+    <option value="">--Select KRA --</option>
+</select>-->
+ <input type="text" class="form-control" name="name" ng-model="kra"/>
+        </div>
+    <div class="form-group">
+         <label>Type</label>
+          <select type="text" class="form-control" ng-options="x.type_name as x.type_name for x in allTypes" ng-model="type">
+    <option value="">--Select KPI Type--</option>
+</select>
+        </div>
+
+        <div class="form-group">
+         <label>Department</label>
+          <select type="text" class="form-control" ng-options="x.dept_name as x.dept_name for x in allDep" ng-model="department">
+    <option value="">--Select Department--</option>
+</select>
+
+          </select>
+        </div>
+
+         <div class="form-group">
+         <label>Status</label>
+          <select type="text" class="form-control" ng-options="x.name as x.name for x in allStatus" ng-model="status">
+    <option value="">--Select Status</option>
+</select>
+
+          </select>
+        </div>
+   
+ <!--  <div class="form-group"   ng-init="loadDepartment()">
+         <label>Department</label>
+          <select name="designation" class="form-control"  ng-model="department">
+          <option value="" style="height:30px;">{{editkpis.Department}}</option>
+          <option  ng-options="x for x in dep" value="{{x.dept_id}}">{{x.dept_name}}</option> -->
+          <!-- <option value="2">HR</option>
+          <option value="3">Sales</option> -->
+
+          <!-- </select>
+        </div> -->
+
+      <!--   <div class="form-group">
+         <label>Status</label>
+          <select name="status" class="form-control" ng-model="status">
+          <option value="" style="height: 30px;">{{editkpis.Status}}</option>
+          <option value="1">Active</option>
+          <option value="0">Idle</option> -->
+          
+
+         <!--  </select>
+        </div>  -->       
+        <button type="submit" name="submit" class="btn btn-default" data-dismiss="modal" ng-click="editKpiDetails(a)">Submit</button>
+        <button type="text" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </form>
+        </div>
+       </div>
+      </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="assignKPI" role="dialog" >
+     <div class="table-responsive">
+    <div class="modal-dialog">
+  
+      <div class="modal-content">
+      <form>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">ASSIGN KPI</h4>
+          <div class="form-group">
+    <label> KPI NAME</label>
+    <input type="text" class="form-control" name="name" value="{{kpiName}}" readonly="" />
+    </div>
+          <div ng-init="loadName()">
+          <input type="text" name="" placeholder="SEARCH EMPLOYEES" class="form-control" ng-model="SearchName">
+        </div></div>
+        <div class="modal-body" style="max-height: 400px !important; overflow-y: auto;">
+  
+  
+            <div class="row" style="margin-top:15px; ">
+              <div  class="col-md-6"   ng-repeat="x in allnames | filter:SearchName">
+              <div class="panel panel-danger panel-lg">
+                
+                <div class="panel-body">
+                   <img ng-src="{{x.emp_img}}" style="height: 70px;width: 70px;border-radius: 50%;border:1px solid pink;margin-left: 35%;"><br><center><span style="margin-left: 3px;font-size: 12px;">{{x.emp_name}}</span></center>
+                   
+                   <p></p>
+                </div>
+                <div class="panel-footer"><span style="margin-left: 3px;font-size: 12px;">{{x.emp_designation}}</span></div>
+              </div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" name="submit" class="btn btn-default" data-dismiss="modal" ng-click="">Assign</button>
+        <button type="text" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          </div>
+        
+        </form>
+        </div>
+       </div>
+      </div></div>
+  </div>
+
+<style type="text/css">
+  @media(max-width:480px) {
+  
+  svg{
+    width:300px;
+    height:200px;
+  }
+  /*DO Something*/
+}
+</style>
