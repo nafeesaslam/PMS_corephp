@@ -3,7 +3,7 @@ dashboard.controller('visibilityController', function($scope, $http, toastr)
 	$scope.me = false;
         $http({
         method: 'GET',
-        url: '../EPMSxs/phpajx/dashboard.php'
+        url: '../PMS_corephp/phpajx/dashboard.php'
          }).then(function successCallback(response) 
          {
             $scope.emp = response.data.emp_img;
@@ -15,7 +15,7 @@ dashboard.controller('visibilityController', function($scope, $http, toastr)
                 toastr.info('Welcome' + " " + response.data.emp_name);
                 $http({
                         method:'GET',
-                        url:'../EPMSxs/phpajx/dashboard.php'
+                        url:'../PMS_corephp/phpajx/dashboard.php'
                 }).then(function success(res){
 
                 },function error(res){

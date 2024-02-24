@@ -38,7 +38,7 @@ $scope.removeachievement=function($index){
 //Function get employees data through $http.get ajax.....
         $http({
                 method: 'GET',
-                url: '/EPMSxs/phpajx/employees.php'
+                url: '/PMS_corephp/phpajx/employees.php'
              }).then(function successCallback(response) 
              {
                /* console.log(response);*/
@@ -64,7 +64,7 @@ $scope.removeachievement=function($index){
              headers : {'Accept' : 'application/json'}
             };
 //alert(JSON.stringify($scope.xs));
-          $http.get('/EPMSxs/phpajx/kpitrans.php', config).then(function(response) {
+          $http.get('/PMS_corephp/phpajx/kpitrans.php', config).then(function(response) {
           $scope.rater = response.data.length;
             if($scope.rater){
               $scope.selfr = response.data[0].self_rating;
@@ -112,7 +112,7 @@ $scope.removeachievement=function($index){
     alert(JSON.stringify(data));
     $http({
       method:'POST',
-      url:'/EPMSxs/phpajx/appScore.php',
+      url:'/PMS_corephp/phpajx/appScore.php',
       data:data
     }).then(function success(res){
         toastr.success(res.data);
@@ -127,7 +127,7 @@ $scope.subRec=function(){
   alert(JSON.stringify(data));
   $http({
     method:'POST',
-    url:'/EPMSxs/phpajx/addRecommend.php',
+    url:'/PMS_corephp/phpajx/addRecommend.php',
     data:data,
     headers:{'content-type':'application/json'}
   }).then(function success(res){
@@ -143,7 +143,7 @@ $scope.subGap=function(){
   alert(JSON.stringify(data));
   $http({
     method:'POST',
-    url:'/EPMSxs/phpajx/addGap.php',
+    url:'/PMS_corephp/phpajx/addGap.php',
     data:data,
     headers:{'content-type':'application/json'}
   }).then(function success(res){
@@ -158,7 +158,7 @@ $scope.subAchieve=function(){
   alert(JSON.stringify(data));
   $http({
     method:'POST',
-    url:'/EPMSxs/phpajx/addAchieve.php',
+    url:'/PMS_corephp/phpajx/addAchieve.php',
     data:data,
     headers:{'content-type':'application/json'}
   }).then(function success(res){
@@ -199,7 +199,7 @@ $scope.subAchieve=function(){
 $scope.loadallKPI=function(){
         $http({
             method:'GET',
-            url:'../EPMSxs/phpajx/allKpi.php'
+            url:'../PMS_corephp/phpajx/allKpi.php'
         }).then(function(res){
             $scope.allkpis = res.data;
            
@@ -236,7 +236,7 @@ $scope.loadallKPI=function(){
      alert(JSON.stringify(data));
         $http({
              method:'POST',
-             url:'../EPMSxs/phpajx/assignkpi.php',
+             url:'../PMS_corephp/phpajx/assignkpi.php',
              data:data,
              headers:{'content-type':'application/json'}
          }).then(function(res){

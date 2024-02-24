@@ -7,7 +7,7 @@ dashboard.controller('WasController', function($scope, $http)
 
         $http({
         method: 'GET',
-        url: '../EPMSxs/phpajx/reports.php'
+        url: '../PMS_corephp/phpajx/reports.php'
          }).then(function successCallback(response) 
          {
               

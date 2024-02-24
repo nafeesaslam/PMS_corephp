@@ -60,8 +60,8 @@ header('location: index.php');
 
 	</div>
 </div>
-<link href="/EPMSxs/boot/css/bootstrap.min.css" rel="stylesheet">
-<script type="text/javascript" src="/EPMSxs/boot/js/bootstrap.min.js"></script>
+<link href="/PMS_corephp/boot/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="/PMS_corephp/boot/js/bootstrap.min.js"></script>
 <style type="text/css">
 	.form-control{
 		margin-top: 5px;

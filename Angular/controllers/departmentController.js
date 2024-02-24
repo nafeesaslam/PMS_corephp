@@ -3,7 +3,7 @@ dashboard.controller('departmentController', function($scope, $http,$filter, toa
 	$scope.loadDepartment=function(){
         $http({
             method:'GET',
-            url:'../EPMSxs/phpajx/departmentlist.php'
+            url:'../PMS_corephp/phpajx/departmentlist.php'
         }).then(function(res){
             $scope.alldeps = res.data;
             //alert(JSON.stringify($scope.data));
@@ -23,7 +23,7 @@ dashboard.controller('departmentController', function($scope, $http,$filter, toa
               
             $http({
                 method:'POST',
-                url:'/EPMSxs/phpajx/createdepartment.php',
+                url:'/PMS_corephp/phpajx/createdepartment.php',
                 data: depData,
                 headers:{'content-type':'application/json'}
             }).then(function successCallback(res){
@@ -39,7 +39,7 @@ dashboard.controller('departmentController', function($scope, $http,$filter, toa
            }
            $http({
             method:'GET',
-            url:'../EPMSxs/phpajx/getDepartment.php'
+            url:'../PMS_corephp/phpajx/getDepartment.php'
         }).then(function(res){
             $scope.allDep = res.data;
           //alert(JSON.stringify($scope.allDep));
@@ -51,7 +51,7 @@ dashboard.controller('departmentController', function($scope, $http,$filter, toa
         //Get Status for Kpi
           $http({
             method:'GET',
-            url:'../EPMSxs/phpajx/getKpiStatus.php'
+            url:'../PMS_corephp/phpajx/getKpiStatus.php'
         }).then(function(res){
             $scope.allStatus = res.data;
             //alert(JSON.stringify($scope.allTypes));
@@ -80,7 +80,7 @@ dashboard.controller('departmentController', function($scope, $http,$filter, toa
               // alert(JSON.stringify(data));
             $http({
                 method:'POST',
-                url:'../EPMSxs/phpajx/editDepartment.php',
+                url:'../PMS_corephp/phpajx/editDepartment.php',
                 data: data,
                 headers:{'content-type':'application/json'}
             }).then(function successCallback(res){
@@ -96,7 +96,7 @@ dashboard.controller('departmentController', function($scope, $http,$filter, toa
                 //alert($scope.epno);
                 $http({
                 method:'POST',
-                url:'/EPMSxs/phpajx/deleteDepartment.php',
+                url:'/PMS_corephp/phpajx/deleteDepartment.php',
                 data: dat,
                 headers:{'content-type':'application/json'}
 

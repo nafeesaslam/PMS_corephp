@@ -11,7 +11,7 @@ dashboard.controller('designationController', function($scope, $http,$filter, to
 	$scope.loadDesignation=function(){
           method:'GET',
            $http({
-           url:'../EPMSxs/phpajx/designationlist.php'
+           url:'../PMS_corephp/phpajx/designationlist.php'
         }).then(function(res){
             $scope.alldeps = res.data;
             //alert(JSON.stringify($scope.data));
@@ -31,7 +31,7 @@ dashboard.controller('designationController', function($scope, $http,$filter, to
               
             $http({
                 method:'POST',
-                url:'/EPMSxs/phpajx/createDesignation.php',
+                url:'/PMS_corephp/phpajx/createDesignation.php',
                 data: depData,
                 headers:{'content-type':'application/json'}
             }).then(function successCallback(res){
@@ -47,7 +47,7 @@ dashboard.controller('designationController', function($scope, $http,$filter, to
            }
            $http({
             method:'GET',
-            url:'../EPMSxs/phpajx/getDesignation.php'
+            url:'../PMS_corephp/phpajx/getDesignation.php'
         }).then(function(res){
             $scope.allDep = res.data;
           //alert(JSON.stringify($scope.allDep));
@@ -59,7 +59,7 @@ dashboard.controller('designationController', function($scope, $http,$filter, to
         //Get Status for Kpi
           $http({
             method:'GET',
-            url:'../EPMSxs/phpajx/getKpiStatus.php'
+            url:'../PMS_corephp/phpajx/getKpiStatus.php'
         }).then(function(res){
             $scope.allStatus = res.data;
             //alert(JSON.stringify($scope.allTypes));
@@ -82,7 +82,7 @@ dashboard.controller('designationController', function($scope, $http,$filter, to
               // alert(JSON.stringify(data));
             $http({
                 method:'POST',
-                url:'../EPMSxs/phpajx/editDesignation.php',
+                url:'../PMS_corephp/phpajx/editDesignation.php',
                 data: data,
                 headers:{'content-type':'application/json'}
             }).then(function successCallback(res){
@@ -98,7 +98,7 @@ dashboard.controller('designationController', function($scope, $http,$filter, to
                 //alert($scope.epno);
                 $http({
                 method:'POST',
-                url:'/EPMSxs/phpajx/deleteDesignation.php',
+                url:'/PMS_corephp/phpajx/deleteDesignation.php',
                 data: dat,
                 headers:{'content-type':'application/json'}
 

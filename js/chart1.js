@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$.ajax({
- 		url: "../EPMSxs/phpajx/chart1KPI.php",
+ 		url: "../PMS_corephp/phpajx/chart1KPI.php",
  		type: "POST",
 		success: function(data){
          

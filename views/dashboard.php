@@ -443,10 +443,10 @@ header('location:./php/Login.php');
   </div>
 
 </div>
- <!-- <script type="text/javascript" src="/EPMSxs/js/jquery.min.js"></script>
-    <link href="/EPMSxs/boot/css/bootstrap.min.css" rel="stylesheet">
-    <script type="text/javascript" src="/EPMSxs/boot/js/bootstrap.min.js"></script>
-    <link href="/EPMSxs/css/simple-sidebar.css" rel="stylesheet"> -->
+ <!-- <script type="text/javascript" src="/PMS_corephp/js/jquery.min.js"></script>
+    <link href="/PMS_corephp/boot/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="/PMS_corephp/boot/js/bootstrap.min.js"></script>
+    <link href="/PMS_corephp/css/simple-sidebar.css" rel="stylesheet"> -->
 <div class="container-fluid" style="margin-top:10px;">
 <div class="row">
 <div class="col-md-3" style="padding: 0px;">
@@ -483,7 +483,7 @@ header('location:./php/Login.php');
 <div class="panel panel-default" style="height: 150px;">
       <div class="panel-body"> 
       <canvas id="myChart" height="150" style="margin-top:-12px;"></canvas>
-       <script src="../EPMSxs/js/chart2.js"></script>  
+       <script src="../PMS_corephp/js/chart2.js"></script>  
 </div>
 </div>
 </div>
@@ -494,7 +494,7 @@ header('location:./php/Login.php');
 <div class="panel-body">
 <p style="margin-top: -16px;text-align: center;"> <b> KPI Wise Ratings </b></p>
 <canvas id="myChart1" height="120" width="" style="margin-top:-12px;"></canvas>
-   <script src='../EPMSxs/js/chart1.js'></script>
+   <script src='../PMS_corephp/js/chart1.js'></script>
 </div>
 </div>
 </div>
@@ -503,7 +503,7 @@ header('location:./php/Login.php');
 <div class="panel-body">
 <p style="margin-top: -15px;text-align: center;"> <b> KPI Wise Performance Trends </b></p>
 <canvas id="myLine" height="130" width="" style="margin-top:-20px;"></canvas>
-   <script src="../EPMSxs/js/line.js"></script>
+   <script src="../PMS_corephp/js/line.js"></script>
 </div>
 </div> 
 </div>
@@ -524,7 +524,7 @@ d. Take active role in CSR activities of the company<br>
 <div class="panel panel-default" style="height: 180px;">
 <div class="panel-body">
 <canvas id="myBubble" style="margin-top:-12px;height:80px;"></canvas>
-    <script src="../EPMSxs/js/bubble.js"></script>
+    <script src="../PMS_corephp/js/bubble.js"></script>
 </div></div></div>
 <div class="col-md-3">
 <div class="panel panel-default" style="height: 180px;">
@@ -564,7 +564,7 @@ d. Take active role in CSR activities of the company<br>
 <div class="panel-body">
 <p style="margin-top: -10px;"> <b>Your Grade in Overall Organization </b></p>
 <canvas id="myDon" height="100" width="240" style="margin-top:-1px;"></canvas>
-<script src="../EPMSxs/js/doughnut.js"></script>
+<script src="../PMS_corephp/js/doughnut.js"></script>
 </div>
 </div>
 </div>

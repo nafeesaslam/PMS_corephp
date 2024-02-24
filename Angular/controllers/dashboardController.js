@@ -42,7 +42,7 @@ dashboard.controller('dashboardController', function($scope, $http,toastr)
 
         /*Tag 1*/$http({
         method: 'GET',
-        url: '../EPMSxs/phpajx/dashboard.php'
+        url: '../PMS_corephp/phpajx/dashboard.php'
          }).then(function successCallback(response) {
         /*console.log(response.data);*/
         $scope.logEmp = response.data;
@@ -60,7 +60,7 @@ dashboard.controller('dashboardController', function($scope, $http,toastr)
 
         $http({
         method: 'GET',
-        url: '../EPMSxs/phpajx/getkpiDetails.php'
+        url: '../PMS_corephp/phpajx/getkpiDetails.php'
          }).then(function successCallback(response) {
         /*console.log(response.data);*/
         $scope.tranDetails = response.data[0];
@@ -77,7 +77,7 @@ dashboard.controller('dashboardController', function($scope, $http,toastr)
 
         $http({
         method: 'GET',
-        url: '../EPMSxs/phpajx/getSelfRateDetails.php'
+        url: '../PMS_corephp/phpajx/getSelfRateDetails.php'
          }).then(function successCallback(response) {
         /*console.log(response.data);*/
 
@@ -180,7 +180,7 @@ dashboard.controller('dashboardController', function($scope, $http,toastr)
 
         $http({
         method: 'GET',
-        url: '../EPMSxs/phpajx/appOneRatingDetails.php'
+        url: '../PMS_corephp/phpajx/appOneRatingDetails.php'
          }).then(function successCallback(response) {
         /*console.log(response.data);*/
             var datalen=response.data.length;
@@ -275,7 +275,7 @@ dashboard.controller('dashboardController', function($scope, $http,toastr)
 
         $http({
         method: 'GET',
-        url: '../EPMSxs/phpajx/appTwoRatingDetails.php'
+        url: '../PMS_corephp/phpajx/appTwoRatingDetails.php'
          }).then(function successCallback(response) {
         /*console.log(response.data);*/
        
@@ -372,7 +372,7 @@ dashboard.controller('dashboardController', function($scope, $http,toastr)
 
          $http({
         method: 'GET',
-        url: '../EPMSxs/phpajx/reviewerRatingDetails.php'
+        url: '../PMS_corephp/phpajx/reviewerRatingDetails.php'
          }).then(function successCallback(response) {
         /*console.log(response.data);*/
        
@@ -444,7 +444,7 @@ dashboard.controller('dashboardController', function($scope, $http,toastr)
 
          $http({
         method: 'GET',
-        url: '../EPMSxs/phpajx/recommendApp1.php'
+        url: '../PMS_corephp/phpajx/recommendApp1.php'
          }).then(function successCallback(response) {
         /*console.log(response.data);*/
        
@@ -512,7 +512,7 @@ dashboard.controller('dashboardController', function($scope, $http,toastr)
          $scope.Ratings = {};
     $http({
         method:'GET',
-        url:'/EPMSxs/phpajx/trans.php'
+        url:'/PMS_corephp/phpajx/trans.php'
     }).then(function success(response){
             var obj = response.data[0];
                 $scope.columns =  Object.keys(obj).filter(function(key) {
@@ -586,7 +586,7 @@ dashboard.controller('dashboardController', function($scope, $http,toastr)
         console.log(JSON.stringify(myData));
         $http({
             method:"POST",
-            url:"/EPMSxs/phpajx/submitScore.php",
+            url:"/PMS_corephp/phpajx/submitScore.php",
             data:myData,
             headers:{'content-type':'application/json'}
 
@@ -601,7 +601,7 @@ dashboard.controller('dashboardController', function($scope, $http,toastr)
   
   $http({
     method:'GET',
-    url:'/EPMSxs/phpajx/getGaps.php'
+    url:'/PMS_corephp/phpajx/getGaps.php'
   }).then(function success(res){
 
         $scope.listGaps = res.data;

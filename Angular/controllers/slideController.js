@@ -6,7 +6,7 @@ dashboard.controller('slideCtrl', function($scope,$http,toastr) {
 $scope.Ratings = {};
 	$http({
 		method:'GET',
-		url:'/EPMSxs/phpajx/trans.php'
+		url:'/PMS_corephp/phpajx/trans.php'
 	}).then(function success(response){
 			var obj = response.data[0];
 				$scope.columns =  Object.keys(obj).filter(function(key) {
@@ -80,7 +80,7 @@ $scope.Ratings = {};
     	console.log(JSON.stringify(myData));
     	$http({
     		method:"POST",
-    		url:"/EPMSxs/phpajx/submitScore.php",
+    		url:"/PMS_corephp/phpajx/submitScore.php",
     		data:myData,
     		headers:{'content-type':'application/json'}
 

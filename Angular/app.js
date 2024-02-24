@@ -102,7 +102,7 @@ dashboard.config(function($stateProvider, $urlRouterProvider, toastrConfig)
         //alert(JSON.stringify(data));
         $http({
             method:'POST',
-            url:'/EPMSxs/phpajx/addEmp.php',
+            url:'/PMS_corephp/phpajx/addEmp.php',
             data:data,
             headers:{'content-type':'application/json'}
         }).then(function success(res){
@@ -115,7 +115,7 @@ dashboard.config(function($stateProvider, $urlRouterProvider, toastrConfig)
 $scope.loadDepartment=function(){
           method:'GET',
            $http({
-           url:'/EPMSxs/phpajx/getDepartment.php'
+           url:'/PMS_corephp/phpajx/getDepartment.php'
         }).then(function(res){
             $scope.alldeps = res.data;
             //alert(JSON.stringify($scope.data));
@@ -127,7 +127,7 @@ $scope.loadDepartment=function(){
 $scope.loadDesignation=function(){
           method:'GET',
            $http({
-           url:'/EPMSxs/phpajx/designationlist.php'
+           url:'/PMS_corephp/phpajx/designationlist.php'
         }).then(function(res){
             $scope.alldes = res.data;
             //alert(JSON.stringify($scope.data));
@@ -139,7 +139,7 @@ $scope.loadDesignation=function(){
  $scope.loadBlood=function(){
           method:'GET',
            $http({
-           url:'/EPMSxs/phpajx/getBlood.php'
+           url:'/PMS_corephp/phpajx/getBlood.php'
         }).then(function(res){
             $scope.allblds = res.data;
             //alert(JSON.stringify($scope.data));
@@ -155,7 +155,7 @@ $scope.loadDesignation=function(){
         //console.log(JSON.stringify(data));
         $http({
             method:'POST',
-            url:'/EPMSxs/phpajx/addLogin.php',
+            url:'/PMS_corephp/phpajx/addLogin.php',
             data:data,
             headers:{'content-type':'application/json'}
         }).then(function success(response){

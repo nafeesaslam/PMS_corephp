@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$.ajax({
- 		url: "../EPMSxs/phpajx/doughnutKPI.php",
+ 		url: "../PMS_corephp/phpajx/doughnutKPI.php",
  		type: "POST",
 		success: function(data){
          

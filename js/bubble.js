@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$.ajax({
- 		url: "../EPMSxs/phpajx/bubbleKPI.php",
+ 		url: "../PMS_corephp/phpajx/bubbleKPI.php",
  		type: "POST",
 		success: function(data){
          

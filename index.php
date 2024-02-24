@@ -1,18 +1,4 @@
-<?php
-session_start();
-include ('./php/dbconfig.php');
-if($_SESSION['emp_no']=='')
-{
-header('location:./php/Login.php'); 
-}
-?>
-<?php
-if(isset($_POST["getData"])){
-$_SESSION["year"] = $_POST["year"];
-$_SESSION["month"] = $_POST["month"];
-$_SESSION["half_year"] = $_POST["half_year"];
-$_SESSION["q_year"] = $_POST["q_year"];}?>
-<!DOCTYPE html>
+<!--  -->
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -22,31 +8,31 @@ $_SESSION["q_year"] = $_POST["q_year"];}?>
     <meta name="author" content="">
     <title>KPMS</title>
     <!-- Bootstrap Core CSS -->
-    <!-- <link href="/EPMSxs/css/bootstrap.min.css" rel="stylesheet"> -->
-     <script type="text/javascript" src="/EPMSxs/js/jquery.min.js"></script>
-    <link href="/EPMSxs/boot/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="/PMS_corephp/css/bootstrap.min.css" rel="stylesheet"> -->
+     <script type="text/javascript" src="/PMS_corephp/js/jquery.min.js"></script>
+    <link href="/PMS_corephp/boot/css/bootstrap.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
-    <script type="text/javascript" src="/EPMSxs/boot/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/PMS_corephp/boot/js/bootstrap.min.js"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="rzslider.css">
-    <link href="/EPMSxs/css/simple-sidebar.css" rel="stylesheet">
-    <link href="/EPMSxs/css/style.css" rel="stylesheet">
-    <link href="/EPMSxs/css/crop.css" rel="stylesheet">
+    <link href="/PMS_corephp/css/simple-sidebar.css" rel="stylesheet">
+    <link href="/PMS_corephp/css/style.css" rel="stylesheet">
+    <link href="/PMS_corephp/css/crop.css" rel="stylesheet">
 
-    <!-- <link rel="stylesheet" type="text/css" href="/EPMSxs/css/jasny-bootstrap.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="/PMS_corephp/css/jasny-bootstrap.css"> -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/EPMSxs/css/jquery-ui.css" />
-    <link rel="stylesheet" type="text/css" href="/EPMSxs/css/datepicker3.css" />
-    <link rel="stylesheet" href="/EPMSxs/css/angular-toastr.css" />
+    <link rel="stylesheet" type="text/css" href="/PMS_corephp/css/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="/PMS_corephp/css/datepicker3.css" />
+    <link rel="stylesheet" href="/PMS_corephp/css/angular-toastr.css" />
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js">
 </script>
  -->
 
    
-    <script src="/EPMSxs/js/angular.min.js"></script>
-    <script type="text/javascript" src="/EPMSxs/js/angular-route.min.js"></script>
-    <script src="/EPMSxs/js/angular-ui-router.min.js"></script>
+    <script src="/PMS_corephp/js/angular.min.js"></script>
+    <script type="text/javascript" src="/PMS_corephp/js/angular-route.min.js"></script>
+    <script src="/PMS_corephp/js/angular-ui-router.min.js"></script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
@@ -56,9 +42,9 @@ $_SESSION["q_year"] = $_POST["q_year"];}?>
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
   
 
-    <script type="text/javascript" src="/EPMSxs/js/shim.js"></script>
-    <script type="text/javascript" src="/EPMSxs/js/upload.js"></script>
-    <script type="text/javascript" src="/EPMSxs/js/crop.js"></script>
+    <script type="text/javascript" src="/PMS_corephp/js/shim.js"></script>
+    <script type="text/javascript" src="/PMS_corephp/js/upload.js"></script>
+    <script type="text/javascript" src="/PMS_corephp/js/crop.js"></script>
 
 
 
@@ -77,10 +63,10 @@ $_SESSION["q_year"] = $_POST["q_year"];}?>
 
 
 
-    <script src="/EPMSxs/js/angular-toastr.tpls.js"></script>
-    <!-- <script type="text/javascript" src="/EPMSxs/js/jasny-bootstrap.js"></script> -->
+    <script src="/PMS_corephp/js/angular-toastr.tpls.js"></script>
+    <!-- <script type="text/javascript" src="/PMS_corephp/js/jasny-bootstrap.js"></script> -->
     <script type="text/javascript" src="Chart.min.js"></script>
-   <!--  <script type="text/javascript" src="/EPMSxs/js/bootstrap-rating.min.js"></script>
+   <!--  <script type="text/javascript" src="/PMS_corephp/js/bootstrap-rating.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.2.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script> -->

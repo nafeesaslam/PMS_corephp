@@ -17,7 +17,7 @@ dashboard.controller('kpimasterController', function($scope, $http,$filter, toas
         //Get KPI Types
         $http({
             method:'GET',
-            url:'../EPMSxs/phpajx/getKpiType.php'
+            url:'../PMS_corephp/phpajx/getKpiType.php'
         }).then(function(res){
             $scope.allTypes = res.data;
             //alert(JSON.stringify($scope.allTypes));
@@ -30,7 +30,7 @@ dashboard.controller('kpimasterController', function($scope, $http,$filter, toas
         //Get Department Types
          $http({
             method:'GET',
-            url:'../EPMSxs/phpajx/getDepartment.php'
+            url:'../PMS_corephp/phpajx/getDepartment.php'
         }).then(function(res){
             $scope.allDep = res.data;
           //alert(JSON.stringify($scope.allDep));
@@ -42,7 +42,7 @@ dashboard.controller('kpimasterController', function($scope, $http,$filter, toas
         //Get Status for Kpi
           $http({
             method:'GET',
-            url:'../EPMSxs/phpajx/getKpiStatus.php'
+            url:'../PMS_corephp/phpajx/getKpiStatus.php'
         }).then(function(res){
             $scope.allStatus = res.data;
             //alert(JSON.stringify($scope.allTypes));
@@ -56,7 +56,7 @@ dashboard.controller('kpimasterController', function($scope, $http,$filter, toas
     $scope.loadName=function(){
         $http({
             method:'GET',
-            url:'../EPMSxs/phpajx/loadEmpName.php'
+            url:'../PMS_corephp/phpajx/loadEmpName.php'
         }).then(function(res){
             $scope.allnames = res.data;
            
@@ -71,7 +71,7 @@ dashboard.controller('kpimasterController', function($scope, $http,$filter, toas
     $scope.loadData = function(){
         $http({
         method: 'GET',
-        url: '../EPMSxs/phpajx/kpilist.php'
+        url: '../PMS_corephp/phpajx/kpilist.php'
          }).then(function successCallback(response) 
          {
              var obj = response.data[0];
@@ -118,7 +118,7 @@ dashboard.controller('kpimasterController', function($scope, $http,$filter, toas
             alert(JSON.stringify(kpiData));  
             $http({
                 method:'POST',
-                url:'/EPMSxs/phpajx/createKpiList.php',
+                url:'/PMS_corephp/phpajx/createKpiList.php',
                 data: kpiData,
                 headers:{'content-type':'application/json'}
             }).then(function successCallback(res){
@@ -128,7 +128,7 @@ dashboard.controller('kpimasterController', function($scope, $http,$filter, toas
 
                 /*$http({
                     method:'GET',
-                    url:'/EPMSxs/phpajx/createKpiList.php'
+                    url:'/PMS_corephp/phpajx/createKpiList.php'
                 }).then(function success(){
                     $scope.kpi=response.data;
                 },function error(){
@@ -174,7 +174,7 @@ dashboard.controller('kpimasterController', function($scope, $http,$filter, toas
                 //alert($scope.epno);
                 $http({
                 method:'POST',
-                url:'/EPMSxs/phpajx/deleteKpi.php',
+                url:'/PMS_corephp/phpajx/deleteKpi.php',
                 data: dat,
                 headers:{'content-type':'application/json'}
 
@@ -204,7 +204,7 @@ dashboard.controller('kpimasterController', function($scope, $http,$filter, toas
               alert(JSON.stringify(data));
             $http({
                 method:'POST',
-                url:'../EPMSxs/phpajx/editKpiList.php',
+                url:'../PMS_corephp/phpajx/editKpiList.php',
                 data: data,
                 headers:{'content-type':'application/json'}
             }).then(function successCallback(res){

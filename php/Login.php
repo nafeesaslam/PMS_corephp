@@ -16,7 +16,7 @@ if (empty($_POST["myusername"]) || empty($_POST["mypassword"]))
 	{ 
 	$username=$_POST["myusername"]; 
 	$password=$_POST["mypassword"]; 
-	$query= "select * from tbl_login where password='$password' AND user_name='$username' COLLATE latin1_general_cs";
+	$query= "select * from tbl_login where password='$password' AND user_name='$username'";
 $result	= mysqli_query($conn,$query);
 $rows = mysqli_num_rows($result);
 $role=mysqli_fetch_assoc($result);
