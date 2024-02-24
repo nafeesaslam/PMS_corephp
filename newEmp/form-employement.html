@@ -1,45 +1,50 @@
 <form name="myForm" ng-submit="some()" novalidate>
 
-<div class="row">
-    <div class="col-md-4 col-xs-12">
-        
-        <div class="form-group">
-            <label>Joining Date</label>
-            <input  class="form-control" type="date"  name="jdate" ng-model="formData.jdate">
-        </div>
-    </div>
-    <div class="col-md-4 col-xs-12">
-        <div class="form-group">
-            <label>Employee Category</label>
-            <input ng-disabled="!myForm.jdate.$dirty" class="form-control" placeholder="" type="text" name="emptype" ng-model="formData.emptype" required>
-        </div>
-    </div>
-    <div class="col-md-4 col-xs-12" ng-init="loadDesignation()">
-        <div class="form-group">
-            <label>Designation</label>
-            <select type="text" class="form-control" name="desig" ng-options=" x.designation_name as x.designation_name for x in alldes" ng-model="formData.desig" required="required" ng-disabled="!myForm.emptype.$dirty">
-    <option value="">--Select Designation--</option>
-</select>
-            <!-- <input ng-disabled="!myForm.emptype.$dirty" required class="form-control" placeholder="" type="text" name="desig" ng-model="formData.desig"> -->
-        </div>
-    </div>
+    <div class="row">
+        <div class="col-md-4 col-xs-12">
 
-</div>
-<div class="row">
-    
-    <div class="col-md-4 col-xs-12" ng-init="loadDepartment()">
-        
-        <div class="form-group">
-                <label>Department</label>
-                 <select ng-disabled="!myForm.desig.$dirty" type="text" name="dep" class="form-control" ng-options=" x.dept_name as x.dept_name for x in alldeps" ng-model="formData.contact" required="required">
-    <option value="">--Select Department--</option>
-</select>
+            <div class="form-group">
+                <label>Joining Date</label>
+                <input class="form-control" type="date" name="jdate" ng-model="formData.jdate">
             </div>
-    </div>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+                <label>Employee Category</label>
+                <input ng-disabled="!myForm.jdate.$dirty" class="form-control" placeholder="" type="text" name="emptype"
+                    ng-model="formData.emptype" required>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12" ng-init="loadDesignation()">
+            <div class="form-group">
+                <label>Designation</label>
+                <select type="text" class="form-control" name="desig"
+                    ng-options=" x.designation_name as x.designation_name for x in alldes" ng-model="formData.desig"
+                    required="required" ng-disabled="!myForm.emptype.$dirty">
+                    <option value="">--Select Designation--</option>
+                </select>
+                <!-- <input ng-disabled="!myForm.emptype.$dirty" required class="form-control" placeholder="" type="text" name="desig" ng-model="formData.desig"> -->
+            </div>
+        </div>
 
-    <div class="col-md-4 col-xs-12">
-        
-        <div class="form-group">
+    </div>
+    <div class="row">
+
+        <div class="col-md-4 col-xs-12" ng-init="loadDepartment()">
+
+            <div class="form-group">
+                <label>Department</label>
+                <select ng-disabled="!myForm.desig.$dirty" type="text" name="dep" class="form-control"
+                    ng-options=" x.dept_name as x.dept_name for x in alldeps" ng-model="formData.contact"
+                    required="required">
+                    <option value="">--Select Department--</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12">
+
+            <div class="form-group">
                 <label>No of Appraisers</label>
                 <select ng-disabled="!myForm.dep.$dirty" class="form-control" name="noapp" ng-model="formData.noapp">
                     <option value="">No of Appraisers</option>
@@ -47,85 +52,90 @@
                     <option value="2">2</option>
                 </select><!-- <input required class="form-control" placeholder="Contact" type="text" name="email" ng-model="formData.contact"> -->
             </div>
-    </div>
-
-    <div class="col-md-4 col-xs-12">
-        <div class="form-group">
-            <label>Reporting Manager</label>
-            <input ng-disabled="!myForm.noapp.$dirty" class="form-control" placeholder="" type="text" name="rman" ng-model="formData.rman">
         </div>
-    </div>
 
-</div>
-<div class="row" ng-hide="formData.noapp=='' || !myForm.noapp.$dirty">
-    
-    <div class="col-md-3 col-xs-12">
-        <div class="form-group">
-            <label>Appraiser 1</label>
-            <input  class="form-control" placeholder="Name" type="text" name="app1" ng-model="formData.app1name">
-        </div>
-    </div>
-
-    <div class="col-md-1 col-xs-12">
-        <div class="form-group">
-            <label>Emp.No</label>
-            <input  class="form-control" placeholder="No" type="text" name="app1no" ng-model="formData.app1no">
-        </div>
-    </div>
-    <div class="col-md-3 col-xs-12" ng-hide="formData.noapp==1">
-        <div class="form-group">
-            <label>Appraiser 2</label>
-            <input  class="form-control" placeholder="Name" type="text" name="app2" ng-model="formData.app2name">
-        </div>
-    </div>
-
-    <div class="col-md-1 col-xs-12" ng-hide="formData.noapp==1">
-        <div class="form-group">
-            <label>Emp.No</label>
-            <input  class="form-control" placeholder="No" type="text" name="app2no" ng-model="formData.app2no">
-        </div>
-    </div>
-
-    <div class="col-md-3 col-xs-12">
-        <div class="form-group">
-            <label>Reviewer</label>
-            <input  class="form-control" placeholder="Name" type="text" name="rev" ng-model="formData.rev">
-        </div>
-    </div>
-
-    <div class="col-md-1 col-xs-12">
-        <div class="form-group">
-            <label>Emp.No</label>
-            <input  class="form-control" placeholder="No" type="text" name="revno" ng-model="formData.revno">
-        </div>
-    </div>
-
-</div>
-<div class="row">
-    <div class="col-md-4 col-xs-12">
-        <label>Permissions</label>
-        <div class="form-group">
-            <div class="radio">
-                <label>
-                   <input ng-disabled="!myForm.noapp.$dirty" type="radio"  ng-model="formData.perm" name="pfull" value="1">
-                   Full
-                </label>
-                 <label>
-                    <input ng-disabled="!myForm.noapp.$dirty" type="radio"  ng-model="formData.perm" name="plim" value="0">
-                    Limited
-                </label>
+        <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+                <label>Reporting Manager</label>
+                <input ng-disabled="!myForm.noapp.$dirty" class="form-control" placeholder="" type="text" name="rman"
+                    ng-model="formData.rman">
             </div>
         </div>
-    </div> 
-</div>
+
+    </div>
+    <div class="row" ng-hide="formData.noapp=='' || !myForm.noapp.$dirty">
+
+        <div class="col-md-3 col-xs-12">
+            <div class="form-group">
+                <label>Appraiser 1</label>
+                <input class="form-control" placeholder="Name" type="text" name="app1" ng-model="formData.app1name">
+            </div>
+        </div>
+
+        <div class="col-md-1 col-xs-12">
+            <div class="form-group">
+                <label>Emp.No</label>
+                <input class="form-control" placeholder="No" type="text" name="app1no" ng-model="formData.app1no">
+            </div>
+        </div>
+        <div class="col-md-3 col-xs-12" ng-hide="formData.noapp==1">
+            <div class="form-group">
+                <label>Appraiser 2</label>
+                <input class="form-control" placeholder="Name" type="text" name="app2" ng-model="formData.app2name">
+            </div>
+        </div>
+
+        <div class="col-md-1 col-xs-12" ng-hide="formData.noapp==1">
+            <div class="form-group">
+                <label>Emp.No</label>
+                <input class="form-control" placeholder="No" type="text" name="app2no" ng-model="formData.app2no">
+            </div>
+        </div>
+
+        <div class="col-md-3 col-xs-12">
+            <div class="form-group">
+                <label>Reviewer</label>
+                <input class="form-control" placeholder="Name" type="text" name="rev" ng-model="formData.rev">
+            </div>
+        </div>
+
+        <div class="col-md-1 col-xs-12">
+            <div class="form-group">
+                <label>Emp.No</label>
+                <input class="form-control" placeholder="No" type="text" name="revno" ng-model="formData.revno">
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-xs-12">
+            <label>Permissions</label>
+            <div class="form-group">
+                <div class="radio">
+                    <label>
+                        <input ng-disabled="!myForm.noapp.$dirty" type="radio" ng-model="formData.perm" name="pfull"
+                            value="1">
+                        Full
+                    </label>
+                    <label>
+                        <input ng-disabled="!myForm.noapp.$dirty" type="radio" ng-model="formData.perm" name="plim"
+                            value="0">
+                        Limited
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-<div class="form-group row">
-<div class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
-    <button ng-show=" myForm.jdate.$dirty && myForm.emptype.$dirty && myForm.desig.$dirty && myForm.dep.$dirty && myForm.noapp.$dirty && myForm.rman.$dirty && ( myForm.pfull.$dirty || myForm.plim.$dirty)" type="submit" ui-sref="form.upload" class="btn btn-block btn-info">
-    Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
-    </button>
-</div>
-</div>
+    <div class="form-group row">
+        <div class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
+            <button
+                ng-show=" myForm.jdate.$dirty && myForm.emptype.$dirty && myForm.desig.$dirty && myForm.dep.$dirty && myForm.noapp.$dirty && myForm.rman.$dirty && ( myForm.pfull.$dirty || myForm.plim.$dirty)"
+                type="submit" ui-sref="form.upload" class="btn btn-block btn-info">
+                Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+            </button>
+        </div>
+    </div>
 
 </form>
